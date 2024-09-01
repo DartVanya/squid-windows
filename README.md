@@ -8,7 +8,7 @@ This project provides MSI Windows Installer for Squid Proxy Server. It enables S
 
 **Installation instructions**
 -----------------------------
-* [Download updated forked Squid 6.10 for Windows MSI installer] in the releases page.
+* [Download updated forked Squid 6.10 for Windows MSI installer] in the releases page https://github.com/thewriteway/squid-windows/releases/tag/v6.10
 * Run it and click "Next" button till the product is installed
 
 Please have a look at the tutorial describing [*How to Install Squid on Windows*](https://docs.diladele.com/howtos/installing_squid_windows/index.html).
