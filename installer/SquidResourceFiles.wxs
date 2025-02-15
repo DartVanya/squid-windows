@@ -69,6 +69,9 @@
             <Component Id="cygssl_1.1.dll" Directory="bin" Guid="C104C42E-9766-44CF-A0F0-AD69033D6E88">
                 <File Id="cygssl_1.1.dll" KeyPath="yes" Source="$(var.ResDir)\bin\cygssl-1.1.dll" />
             </Component>
+            <Component Id="cygssl_3.dll" Directory="bin" Guid="65A23A8C-748E-4757-8432-5DB0FA58FB48">
+                <File Id="cygssl_3.dll" KeyPath="yes" Source="$(var.ResDir)\bin\cygssl-3.dll" />
+            </Component>
             <Component Id="cygstdc___6.dll" Directory="bin" Guid="A6D4D204-79CC-4D3D-A0E2-F8C8B983F119">
                 <File Id="cygstdc___6.dll" KeyPath="yes" Source="$(var.ResDir)\bin\cygstdc++-6.dll" />
             </Component>
