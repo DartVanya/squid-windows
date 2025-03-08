@@ -82,3 +82,5 @@ coredump_dir /var/cache/squid
 refresh_pattern ^ftp:		1440	20%	10080
 refresh_pattern -i (/cgi-bin/|\?) 0	0%	0
 refresh_pattern .		0	20%	4320
+
+access_log stdio:/var/log/squid/access.log squid

@@ -1,4 +1,4 @@
-#	WELCOME TO SQUID 6.12
+#	WELCOME TO SQUID 6.13
 #	----------------------------
 #
 #	This is the documentation for the Squid configuration file.
@@ -41,9 +41,10 @@
 #
 #	Units accepted by Squid are:
 #		bytes - byte
-#		KB - Kilobyte (1024 bytes)
-#		MB - Megabyte
-#		GB - Gigabyte
+#		KB - Kilobyte (2^10, 1'024 bytes)
+#		MB - Megabyte (2^20, 1'048'576 bytes)
+#		GB - Gigabyte (2^30, 1'073'741'824 bytes)
+#	Squid does not yet support KiB, MiB, and GiB unit names.
 #
 #  Values with time units
 #
@@ -399,6 +400,9 @@
 #
 #	In SMP mode, each worker does nearly all what a single Squid daemon
 #	does (e.g., listen on http_port and forward HTTP requests).
+#
+#	Changing the number of workers requires a restart: Squid warns about but
+#	otherwise ignores attempts to change this setting via reconfiguration.
 #Default:
 # SMP support disabled.
 
@@ -2297,6 +2301,9 @@ http_port 3128
 #	The tls-cert= option is mandatory on HTTPS ports.
 #
 #	See http_port for a list of modes and options.
+#	Not all http_port options are available for https_port.
+#	Among the unavalable options:
+#	- require-proxy-header
 #Default:
 # none
 
@@ -2358,6 +2365,9 @@ http_port 3128
 #
 #	Other http_port modes and options that are not specific to HTTP and
 #	HTTPS may also work.
+#	Among the options that are not available for ftp_port:
+#	- require-proxy-header
+#	- ssl-bump
 #Default:
 # none
 
@@ -3058,15 +3068,15 @@ http_port 3128
 #	Specify the location and options of the executable for certificate
 #	generator.
 #
-#	/usr/lib/squid/security_file_certgen.exe program can use a disk cache to improve response
+#	/lib/squid/security_file_certgen.exe program can use a disk cache to improve response
 #	times on repeated requests. To enable caching, specify -s and -M
 #	parameters. If those parameters are not given, the program generates
 #	a new certificate on every request.
 #
 #	For more information use:
-#		/usr/lib/squid/security_file_certgen.exe -h
+#		/lib/squid/security_file_certgen.exe -h
 #Default:
-# sslcrtd_program /usr/lib/squid/security_file_certgen.exe -s /var/cache/squid/ssl_db -M 4MB
+# sslcrtd_program /lib/squid/security_file_certgen.exe -s /var/cache/squid/ssl_db -M 4MB
 
 #  TAG: sslcrtd_children
 #	Specifies the maximum number of certificate generation processes that
@@ -4934,7 +4944,7 @@ http_port 3128
 #
 #	No responses is expected.
 #Default:
-# logfile_daemon /usr/lib/squid/log_file_daemon.exe
+# logfile_daemon /lib/squid/log_file_daemon.exe
 
 #  TAG: stats_collection	allow|deny acl acl...
 #	This options allows you to control which requests gets accounted
@@ -5342,12 +5352,12 @@ coredump_dir /var/cache/squid
 #	Note this is only useful if you have compiled in
 #	diskd as one of the store io modules.
 #Default:
-# diskd_program /usr/lib/squid/diskd.exe
+# diskd_program /lib/squid/diskd.exe
 
 #  TAG: unlinkd_program
 #	Specify the location of the executable for file deletion process.
 #Default:
-# unlinkd_program /usr/lib/squid/unlinkd.exe
+# unlinkd_program /lib/squid/unlinkd.exe
 
 #  TAG: pinger_program
 # Note: This option is only available if Squid is rebuilt with the
@@ -5355,7 +5365,7 @@ coredump_dir /var/cache/squid
 #
 #	Specify the location of the executable for the pinger process.
 #Default:
-# pinger_program /usr/lib/squid/pinger.exe
+# pinger_program /lib/squid/pinger.exe
 
 #  TAG: pinger_enable
 # Note: This option is only available if Squid is rebuilt with the
