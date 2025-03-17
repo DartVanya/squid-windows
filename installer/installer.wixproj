@@ -60,7 +60,6 @@
   <ItemGroup>
     <Content Include="banner.bmp" />
     <Content Include="dialog.bmp" />
-    <Content Include="installer.wax" />
     <Content Include="license.rtf" />
     <Content Include="SquidIcon.ico" />
   </ItemGroup>
