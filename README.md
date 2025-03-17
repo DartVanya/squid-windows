@@ -2,7 +2,7 @@
 
 It provides a MSI Windows Installer for Squid Proxy Server. 
 
-Current build is based on the latest **Squid 6.12** build for Cygwin Windows 64 bit.
+Current build is based on the latest **Squid 6.13** build for Cygwin Windows 64 bit.
 
 
 Squid Windows Installer
@@ -12,7 +12,7 @@ Squid Windows Installer
 
 **Installation instructions**
 -----------------------------
-* [Download updated forked Squid 6.12 for Windows MSI installer] in the releases page https://github.com/thewriteway/squid-windows/releases/tag/v6.12
+* [Download latest updated forked Squid for Windows MSI installer] in the releases page https://github.com/dartvanya/squid-windows/releases/latest
 * Run it and click "Next" button till the product is installed
 
 **Help**
