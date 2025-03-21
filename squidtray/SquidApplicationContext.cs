@@ -138,8 +138,7 @@ namespace Diladele.Squid.Tray
         {
             if (PredefinedPaths.InstallationFolder != string.Empty)
             {
-                var startInfo = new ProcessStartInfo("notepad.exe", PredefinedPaths.InstallationFolder + "\\etc\\squid\\squid.conf");
-                startInfo.Verb = "runas";
+                var startInfo = new ProcessStartInfo(PredefinedPaths.InstallationFolder + "\\etc\\squid\\squid.conf");
                 ThreadPool.QueueUserWorkItem(
                     (s) =>
                     {
@@ -248,7 +247,7 @@ namespace Diladele.Squid.Tray
                     remote = (UpdaterProductInfo)new DataContractJsonSerializer(typeof(UpdaterProductInfo)).ReadObject(tmp);
                 }
 
-                if (current.Settings.Version!= remote.Version)
+                if (current.Settings.Version != remote.Version)
                 {
                     this.notifyIcon.ShowBalloonTip(
                         (int)TimeSpan.FromSeconds(15).TotalMilliseconds,
